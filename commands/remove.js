@@ -21,7 +21,7 @@ const remove = ( message, id ) => {
 		}
 
 		if ( results[0].status == 1 ) {
-			return message.reply( `это предупреждение уже снято. Чтобы получить дополнительную информацию, введите: \`${ config.prefix }Информация ${ id }\`` );
+			return message.reply( `это предупреждение уже снято. Чтобы получить дополнительную информацию, введите: \`${ config.bot.prefix }Информация ${ id }\`` );
 		}
 
 		connection.query( "UPDATE `warns` SET `status` = 1 WHERE `id` = ?", [ id ], ( errors ) => {
@@ -32,7 +32,7 @@ const remove = ( message, id ) => {
 			let embed = new discord.MessageEmbed()
 				.setColor( "#EFA00B" )
 				.setTitle( `Снято предупреждение` )
-				.setDescription( `Чтобы перевыдать, введите \`${ config.prefix }Перевыдать ${ id }\`` )
+				.setDescription( `Чтобы перевыдать, введите \`${ config.bot.prefix }Перевыдать ${ id }\`` )
 				.addFields(
 					{
 						name: `Снял`,
@@ -50,7 +50,6 @@ const remove = ( message, id ) => {
 				.setTimestamp();
 
 			message.channel.send( `<@!${ results[0].recipient }>`, embed );
-			message.delete();
 		} );
 	} );
 }

@@ -8,27 +8,27 @@ const help = ( message ) => {
 		.addFields(
 			{
 				name: `Выдать предупреждение`,
-				value: `${ config.prefix }Выдать [Пользователь] [Комментарий]`,
+				value: `${ config.bot.prefix }Выдать [Пользователь] [Комментарий]`,
 				inline: false
 			},
 			{
 				name: `Снять предупреждение`,
-				value: `${ config.prefix }Снять [Идентификатор]`,
+				value: `${ config.bot.prefix }Снять [Идентификатор]`,
 				inline: false
 			},
 			{
 				name: `Перевыдать предупреждение`,
-				value: `${ config.prefix }Перевыдать [Идентификатор]`,
+				value: `${ config.bot.prefix }Перевыдать [Идентификатор]`,
 				inline: false
 			},
 			{
 				name: `Просмотреть список предупреждений пользователя`,
-				value: `${ config.prefix }Предупреждения [Пользователь]`,
+				value: `${ config.bot.prefix }Предупреждения [Пользователь]`,
 				inline: false
 			},
 			{
 				name: `Просмотреть информацию о предупреждении`,
-				value: `${ config.prefix }Информация [Идентификатор]`,
+				value: `${ config.bot.prefix }Информация [Идентификатор]`,
 				inline: false
 			}
 		);

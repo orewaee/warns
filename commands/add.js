@@ -22,7 +22,7 @@ const add = ( message, recipient, comment ) => {
 		let embed = new discord.MessageEmbed()
 			.setColor( "#D34136" )
 			.setTitle( `Выдано предупреждение` )
-			.setDescription( `Чтобы снять, введите \`${ config.prefix }Снять ${ results.insertId }\`` )
+			.setDescription( `Чтобы снять, введите \`${ config.bot.prefix }Снять ${ results.insertId }\`` )
 			.addFields(
 				{
 					name: `Выдал`,
@@ -40,7 +40,6 @@ const add = ( message, recipient, comment ) => {
 			.setTimestamp();
 
 		message.channel.send( `<@!${ recipient }>`, embed );
-		message.delete();
 	} );	
 }
 

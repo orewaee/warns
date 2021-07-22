@@ -28,7 +28,7 @@ const warnings = ( message, recipient ) => {
 		let embed = new discord.MessageEmbed()
 			.setColor( "#D34136" )
 			.setTitle( `Список предупрежданий` )
-			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.prefix }Помощь\`` )
+			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.bot.prefix }Помощь\`` )
 			.addFields(
 				{
 					name: `Пользователь`,
@@ -41,9 +41,7 @@ const warnings = ( message, recipient ) => {
 			)
 			.setTimestamp();
 
-		message.channel.send( `<@!${ results[0].recipient }>`, embed );
-		message.delete();
-		
+		message.channel.send( `<@!${ results[0].recipient }>`, embed );	
 	} );
 }
 

@@ -20,7 +20,7 @@ const repost = ( message, id ) => {
 		}
 
 		if ( results[0].status == 0 ) {
-			return message.reply( `это предупреждение уже активно. Чтобы получить дополнительную информацию, введите: \`${ config.prefix }Информация ${ id }\`, чтобы снять: \`${ config.prefix }Снять ${ id }\`` );
+			return message.reply( `это предупреждение уже активно. Чтобы получить дополнительную информацию, введите: \`${ config.bot.prefix }Информация ${ id }\`, чтобы снять: \`${ config.bot.prefix }Снять ${ id }\`` );
 		}
 
 		connection.query( "UPDATE `warns` SET `status` = 0 WHERE `id` = ?", [ id ], ( errors ) => {
@@ -31,7 +31,7 @@ const repost = ( message, id ) => {
 			let embed = new discord.MessageEmbed()
 				.setColor( "#D34136" )
 				.setTitle( `Перевыдано предупреждение` )
-				.setDescription( `Чтобы снять, введите \`${ config.prefix }Снять ${ id }\`` )
+				.setDescription( `Чтобы снять, введите \`${ config.bot.prefix }Снять ${ id }\`` )
 				.addFields(
 					{
 						name: `Перевыдал`,

@@ -19,14 +19,23 @@ client.on( "ready", () => {
 } );
 
 client.on( "message", ( message ) => {
-	if ( message.author.bot ) {
+	if ( message.channel != config.bot.channel_id ) {
 		return;
 	}
 
 	let message_array = message.content.split( " " );
 
-	if ( !message_array[0].startsWith( config.prefix ) ) {
+	if ( !message_array[0].startsWith( config.bot.prefix ) ) {
 		return;
+	}
+
+	if ( message.author.bot ) {
+		return;
+	}
+
+	if ( !message.member.roles.cache.has( config.bot.role_id ) ) {
+		message.delete();
+		return message.reply( `у вас недостаточно прав.` );
 	}
 
 	let command = message_array[0].substr( 1 );
@@ -44,7 +53,11 @@ client.on( "message", ( message ) => {
 
 		case "Выдать":
 			if ( !message_array[1] ) {
-				return message.reply( `укажите ник пользователя.` );
+				return message.reply( `укажите пользователя.` );
+			}
+
+			if ( !message.guild.members.cache.get( get_recipient_id( message_array ) ) ) {
+				return message.reply( `такого пользователя не существует.` );
 			}
 
 			if ( !message_array[2] ) {
@@ -61,6 +74,8 @@ client.on( "message", ( message ) => {
 			}
 
 			add.add( message, get_recipient_id( message_array ), comment );
+
+			message.delete();
 			break;
 
 		case "Снять":
@@ -69,6 +84,8 @@ client.on( "message", ( message ) => {
 			}
 			
 			remove.remove( message, message_array[1] );
+
+			message.delete();
 			break;
 
 		case "Перевыдать":
@@ -77,6 +94,8 @@ client.on( "message", ( message ) => {
 			}
 
 			repost.repost( message, message_array[1] );
+
+			message.delete();
 			break;
 		
 		case "Предупреждения":
@@ -84,7 +103,13 @@ client.on( "message", ( message ) => {
 				return message.reply( `укажите пользователя.` );
 			}
 
+			if ( !message.guild.members.cache.get( get_recipient_id( message_array ) ) ) {
+				return message.reply( `такого пользователя не существует.` );
+			}
+
 			warnings.warnings( message, get_recipient_id( message_array ) );
+
+			message.delete();
 			break;
 
 		case "Информация":
@@ -93,8 +118,10 @@ client.on( "message", ( message ) => {
 			}
 
 			info.info( message, message_array[1] );
+
+			message.delete();
 			break;
 	}
 } );
 
-client.login( config.token );
+client.login( config.bot.token );

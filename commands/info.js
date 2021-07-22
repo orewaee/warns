@@ -28,7 +28,7 @@ const info = ( message, id ) => {
 		let embed = new discord.MessageEmbed()
 			.setColor( "#EFA00B" )
 			.setTitle( `Информация о предупреждении ${ id }` )
-			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.prefix }Помощь\`` )
+			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.bot.prefix }Помощь\`` )
 			.addFields(
 				{
 					name: `Выдал`,
@@ -49,9 +49,7 @@ const info = ( message, id ) => {
 			)
 			.setTimestamp();
 
-		message.channel.send( `<@!${ results[0].recipient }>`, embed );
-		message.delete();
-		
+		message.channel.send( `<@!${ results[0].recipient }>`, embed );		
 	} );
 }
 
