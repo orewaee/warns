@@ -1,0 +1,26 @@
+{
+	"name": "warns",
+	"version": "1.0.0",
+	"description": "Discord bot that can issue warnings",
+	"main": "app.js",
+	"scripts": {
+		"test": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thew1thered21/warns-bot.git"
+	},
+	"author": "thew1thered21",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/thew1thered21/warns-bot/issues"
+	},
+	"homepage": "https://github.com/thew1thered21/warns-bot#readme",
+	"devDependencies": {
+		"nodemon": "^2.0.12"
+	},
+	"dependencies": {
+		"discord.js": "^12.5.3",
+		"mysql": "^2.18.1"
+	}
+}
