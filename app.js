@@ -15,6 +15,13 @@ const get_recipient_id = ( message_array ) => {
 }
 
 client.on( "ready", () => {
+	client.user.setPresence( {
+		activity: {
+			name: `${ config.bot.prefix }Помощь`
+		},
+		status: "dnd"
+	} );
+
 	console.log( `Application launched` );
 } );
 
