@@ -31,7 +31,7 @@ const remove = ( message, id ) => {
 
 			let embed = new discord.MessageEmbed()
 				.setColor( "#EFA00B" )
-				.setTitle( `Снято предупреждение` )
+				.setTitle( `🔨 Снято предупреждение` )
 				.setDescription( `Чтобы перевыдать, введите \`${ config.bot.prefix }Перевыдать ${ id }\`` )
 				.addFields(
 					{

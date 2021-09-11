@@ -23,11 +23,11 @@ const warnings = ( message, recipient ) => {
 
 		results.map( ( warn ) => {
 			warns += `${ warn.id } `;
-		} )
+		} );
 
 		let embed = new discord.MessageEmbed()
 			.setColor( "#D34136" )
-			.setTitle( `Список предупрежданий` )
+			.setTitle( `📃 Список предупрежданий` )
 			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.bot.prefix }Помощь\`` )
 			.addFields(
 				{

@@ -30,7 +30,7 @@ const repost = ( message, id ) => {
 
 			let embed = new discord.MessageEmbed()
 				.setColor( "#D34136" )
-				.setTitle( `Перевыдано предупреждение` )
+				.setTitle( `🚫 Перевыдано предупреждение` )
 				.setDescription( `Чтобы снять, введите \`${ config.bot.prefix }Снять ${ id }\`` )
 				.addFields(
 					{

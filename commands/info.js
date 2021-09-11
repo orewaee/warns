@@ -27,7 +27,7 @@ const info = ( message, id ) => {
 
 		let embed = new discord.MessageEmbed()
 			.setColor( "#EFA00B" )
-			.setTitle( `Информация о предупреждении ${ id }` )
+			.setTitle( `ℹ️ Информация о предупреждении ${ id }` )
 			.setDescription( `Чтобы получить помощь по командам, введите \`${ config.bot.prefix }Помощь\`` )
 			.addFields(
 				{

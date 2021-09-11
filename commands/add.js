@@ -21,7 +21,7 @@ const add = ( message, recipient, comment ) => {
 
 		let embed = new discord.MessageEmbed()
 			.setColor( "#D34136" )
-			.setTitle( `Выдано предупреждение` )
+			.setTitle( `🚫 Выдано предупреждение` )
 			.setDescription( `Чтобы снять, введите \`${ config.bot.prefix }Снять ${ results.insertId }\`` )
 			.addFields(
 				{
