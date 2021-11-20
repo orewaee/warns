@@ -1,4 +1,4 @@
-# Discord bot for minecraft server - NDS
+# Discord bot for minecraft server - UniverseMC
 [Node.js](https://nodejs.org/) version - 14.15.4
 
 [npm](https://www.npmjs.com/) version - 6.14.10
